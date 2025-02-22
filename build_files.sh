@@ -1,17 +1,8 @@
 #!/bin/bash
 echo "BUILD START"
-
-# Install dependencies
+python3.9 -m venv venv
+source venv/bin/activate
+python -m pip install --upgrade pip
 pip install -r requirements.txt
-
-# Create staticfiles directory
-mkdir -p staticfiles
-
-# Collect static files
-python manage.py collectstatic --noinput --clear
-
-# Debug: List contents of staticfiles directory
-echo "Contents of staticfiles directory:"
-ls -R staticfiles/
-
+python manage.py collectstatic --noinput --clear  
 echo "BUILD END"
